@@ -20,13 +20,9 @@ export default function Home() {
               <span className={styles.brandName}>Real fast</span>
             </li>
             <li>
-              <Image width = {38} height = {38} src = '/realfast_logo.PNG' alt='real fast logo'/>
+              <Image width = {30} height = {38} src = '/realfast_logo.PNG' alt='real fast logo'/>
             </li>
-
-
-
-
-            <li className={styles.MenuItems}>
+            <li className={styles.responsiveMenuItems}>
               <Link href='#' className={styles.navText}>Find jobs</Link>
             </li>
           </ul>
@@ -37,8 +33,11 @@ export default function Home() {
               <Link href='#' className={styles.navText}>Sign in</Link>
             </li>
 
-            <li className={styles.responsiveMenuItems}><Link href='#' className={styles.navText}>Post a job</Link></li>
-            <li><HiOutlineMenu className={styles.menu}/></li>
+            <li className={styles.responsiveMenuItems}>
+              <Link href='#' className={styles.navText}>Post a job</Link></li>
+            <li>
+              <HiOutlineMenu className={styles.menu}/>
+              </li>
           </ul>
           </nav>    
 
@@ -64,7 +63,7 @@ export default function Home() {
             </li>
               </ul>
 
-              <div className={styles.mobileButtonItems}>
+              <div className={styles.mobileBottonItems}>
                 <Link href='#' className={styles.signinBtn}>
                   <span className={styles.btnItems}>Sign in</span>
                   <AiOutlineArrowRight className={styles.btnItems}/>
@@ -84,8 +83,8 @@ export default function Home() {
 const styles = {
   navBar:'h-[60px] flex flex-row justify-between items-center px-3 border border-gray-200 shadow-md',
   navSection:'flex flex-row space-x-3',
-  brandSection:'flex flex-row gap-2',
-  brandName:'font-brand text-2xl text-purple-500 font-bold',
+  // brandSection:'flex flex-row gap-2',
+  brandName:'font-brand text-2xl text-purple-600 font-bold',
   navText:'text-gray-700 hover:text-purple-600',
   responsiveMenuItems:'hidden sm:block',
   menu:'w-[38px] h-[38px] text-gray-500',
@@ -94,8 +93,8 @@ const styles = {
   mobileMenuClose:'w-[38px] h-[38px] absolute top-2 right-2 z-10 text-gray-600 ',
   mobileMenuItems:'flex flex-col gap-3 pt-[60px] pr-4',
   mobileMenuItem:'text-end',
-  mobileMenuText:'text-[20px] font-reading text-gray-400 font-bold',
-  mobileButtonItems:'px-3',
+  mobileMenuText:'text-[20px] font-reading text-gray-400',
+  mobileBottonItems:'px-3',
   signinBtn:'block w-full h-[58px] flex flex-row justify-center items-center px-3 bg-pink-400 rounded-md',
   btnItems:'text-xl',
   createAcctBtn:''
