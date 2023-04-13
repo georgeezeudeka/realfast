@@ -17,3 +17,5 @@ export const navbarStyles = {
     btnItems:'text-xl',
     createAcctBtn:''
   }
+
+

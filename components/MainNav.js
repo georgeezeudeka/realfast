@@ -1,52 +1,52 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {HiOutlineMenu} from 'react-icons/hi';
-import { navbarStyles } from '@/utilities/navbar.styles';
-import { AiOutlineClose, AiOutlineArrowRight } from 'react-icons/ai';
+import { HiOutlineMenu } from 'react-icons/hi';
+import { AiOutlineClose,AiOutlineArrowRight } from 'react-icons/ai';
 
 export default function MainNav() {
-  const [showMobileNav,setShowMobileNav] = useState(false);
+    const [showMobileNav,setShowMobileNav] = useState(false);
 
-    return(
-        <>
-        <nav className={navbarStyles.navBar}>
-          <ul className={navbarStyles.navSection}>
-            <li className={navbarStyles.responsiveMenuItems}>
-              <span className={navbarStyles.brandName}>Real fast</span>
-            </li>
-            <li>
-              <Image width = {30} height = {38} src = '/realfast_logo.PNG' alt='real fast logo'/>
-            </li>
-            <li className={navbarStyles.responsiveMenuItems}>
-              <Link href='#' className={navbarStyles.navText}>Find jobs</Link>
-            </li>
-          </ul>
+    return (
+        <div>
+            <nav className={navbarStyles.navBar} id='mainNav'>
+            <ul className={navbarStyles.navSection}>
+                <li className={navbarStyles.responsiveMenuItems}>
+                <span className={navbarStyles.brandName}>Real Fast</span>
+                </li>
+                <li>
+                <Image width={30} height={38} src='/realfast_logo.png' alt='real fast logo'/>
+                </li>
 
-          <ul className={navbarStyles.navSection}>
-            <li className={navbarStyles.responsiveMenuItems}
-            style={{borderRight:'2px solid gray',paddingRight:8}}>
-              <Link href='#' className={navbarStyles.navText}>Sign in</Link>
-            </li>
+                <li className={navbarStyles.responsiveMenuItems}>
+                <Link href='#' className={navbarStyles.navText}>Find Jobs</Link>
+                </li>
+            </ul>
 
-            <li className={navbarStyles.responsiveMenuItems}>
-              <Link href='#' className={navbarStyles.navText}>Post a job</Link></li>
-            <li>
-            <HiOutlineMenu 
+            <ul className={navbarStyles.navSection}>
+                <li className={navbarStyles.responsiveMenuItems} 
+                style={{borderRight:'2px solid gray',paddingRight:8}}>
+                <Link href='#' className={navbarStyles.navText}>Sign in</Link>
+                </li>
+                <li className={navbarStyles.responsiveMenuItems}>
+                <Link href='#' className={navbarStyles.navText}>Post a job</Link>
+                </li>
+                <li>
+                <HiOutlineMenu 
                 className={navbarStyles.menu}
                 onClick={() => setShowMobileNav(true)}/>
-              </li>
-          </ul>
-          </nav>  
+                </li>
+            </ul>
+            </nav>
 
-          <nav className={navbarStyles.mobileNav} 
+            <nav className={navbarStyles.mobileNav} 
             style={{display:showMobileNav ? 'block' : 'none'}}>
             <AiOutlineClose 
             className={navbarStyles.mobileMenuClose}
             onClick={() => setShowMobileNav(false)}
             />
 
-            <div className={navbarStyles.halfScreenMenuBlock}>
+            <div className={navbarStyles.halfscreenmenublock}>
                 <ul className={navbarStyles.mobileMenuItems}>
                 <li className={navbarStyles.mobileMenuItem}>
                     <Link href='#' className={navbarStyles.mobileMenuText}>Home</Link>
@@ -65,7 +65,7 @@ export default function MainNav() {
                 </li>
                 </ul>
 
-                <div className={navbarStyles.mobileBottomItems}>
+                <div className={navbarStyles.mobileBottonItems}>
                 <Link href='#' className={navbarStyles.signinBtn}>
                     <span className={navbarStyles.btnItems}>Sign in</span>
                     <AiOutlineArrowRight className={navbarStyles.btnItems}/></Link>
@@ -76,6 +76,26 @@ export default function MainNav() {
                 </div>
             </div>
         </nav>
-        </>
+        </div>
     )
+}
+
+const navbarStyles = {
+  navBar:'h-[60px] flex flex-row justify-between items-center px-3 border border-gray-200 shadow-md',
+  navSection:'flex flex-row space-x-3',
+  // brandSection:'flex flex-row gap-2',
+  brandName:'font-brand text-2xl text-purple-600 font-bold',
+  navText:'text-gray-700 hover:text-purple-600',
+  responsiveMenuItems:'hidden sm:block',
+  menu:'block md:hidden w-[38px] h-[38px] text-gray-500',
+  mobileNav:'h-screen w-full bg-black/80 absolute top-0 left-0',
+  halfscreenmenublock:'h-screen min-width-[300px] max-w-[400px] flex-col justify-between bg-black absolute right-0 top-0',
+  mobileMenuClose:'w-[38px] h-[38px] absolute top-2 right-2 z-10 text-gray-600 ',
+  mobileMenuItems:'flex flex-col gap-3 pt-[60px] pr-4',
+  mobileMenuItem:'text-end',
+  mobileMenuText:'text-[20px] font-reading text-gray-400',
+  mobileBottonItems:'px-3',
+  signinBtn:'block w-full h-[58px] flex flex-row justify-between items-center px-3 mt-[250px] bg-pink-400 rounded-md',
+  btnItems:'text-xl',
+  createAcctBtn:''
 }
