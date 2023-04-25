@@ -1,9 +1,18 @@
 import JobCard from "@/components/JobCard";
 import {jobsData} from "@/data/job-data";
 import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 
 export default function AboutUs() {
+    const router = useRouter();
+
+    // setTimeout(() => {
+    //     return router.push('/search')
+    // },3000)
+
+    console.log(router.query.keyword);
+
     //run something after page has been rendered
     useEffect(() => {
         const rNums = [];
@@ -12,7 +21,7 @@ export default function AboutUs() {
             rNums.push(Math.round(Math.random * 100000));
         }
 
-        console.log(rNums);
+        // console.log(rNums);
     },[]);
     
     return (
