@@ -161,7 +161,6 @@ export default function ProfileUpdate () {
         </main>
         </>
     )
-    router.asPath.includes('/talents/profile-update') ? router.push('/talents/profile-update') : router.push('/')
 }
 
 const styles = {
