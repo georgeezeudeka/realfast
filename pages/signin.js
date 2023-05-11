@@ -8,7 +8,8 @@ import { auth } from "@/settings/firebase/firebase.setup";
 import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import {FcGoogle} from 'react-icons/fc';
 import {AiFillGithub} from 'react-icons/ai';
-import {signIn } from 'next-auth/react'; 
+import {AiFillFacebook, AiFillTwitterCircle} from 'react-icons/ai';
+import { signIn } from 'next-auth/react'; 
 import { useSession } from "next-auth/react";
 
 
@@ -42,16 +43,16 @@ export default function Signin () {
             password:'',
         },
         onSubmit:(values) => {
-            signInWithEmailAndPassword(auth,values.email,values.password)
-            .then(() => {
-                onAuthStateChanged(auth,(user) => {
-                    setUid(user.uid);
-                    setEmail(user.email);
-                });
+            // signInWithEmailAndPassword(auth,values.email,values.password)
+            // .then(() => {
+            //     onAuthStateChanged(auth,(user) => {
+            //         setUid(user.uid);
+            //         setEmail(user.email);
+            //     });
 
-                router.push('/talents/profile-update')
-            })
-            .catch(error => console.log(error));
+            //     router.push('/talents/profile-update')
+            // })
+            // .catch(error => console.log(error));
         } 
     });
 
@@ -101,7 +102,13 @@ export default function Signin () {
                         }
                     </div>
 
-                    <button type="submit" className={styles.submitBtn}>Sign in</button>
+                    <button type="submit" 
+                    className={styles.submitBtn}
+                    onClick={() => signIn('credentials',{
+                        email:values.email,
+                        password:values.password,
+                        redirect:false,
+                    })}>Sign in</button>
                 </form>
 
                 <p className="text-lg text-center my-2">OR, Sign in with </p>
@@ -115,6 +122,16 @@ export default function Signin () {
                      className={styles.signInBtn}
                      onClick={() => signIn('github')}>
                      <AiFillGithub/>
+                     </button>
+                     <button 
+                     className={styles.signInBtn}
+                     onClick={() => signIn('facebook')}>
+                     <AiFillFacebook/>
+                     </button>
+                     <button 
+                     className={styles.signInBtn}
+                     onClick={() => signIn('twitter')}>
+                     <AiFillTwitterCircle/>
                      </button>
                 </div>
             </div>
